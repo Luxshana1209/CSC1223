@@ -1,0 +1,139 @@
+Setting environment for using XAMPP for Windows.
+DELL@DESKTOP-8VVGKF7 d:\new
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.123 sec)
+
+MariaDB [(none)]> create database uov;
+Query OK, 1 row affected (0.070 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| uov                |
++--------------------+
+6 rows in set (0.002 sec)
+
+MariaDB [(none)]> use uov;
+Database changed
+MariaDB [uov]> create table Students;
+ERROR 1113 (42000): A table must have at least 1 column
+MariaDB [uov]> create table Students(Stu_id char(10),Name varchar(30),cour varchar(30),DOB date,City varchar(30));
+Query OK, 0 rows affected (0.506 sec)
+
+MariaDB [uov]> Desc Students;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| Stu_id | char(10)    | YES  |     | NULL    |       |
+| Name   | varchar(30) | YES  |     | NULL    |       |
+| cour   | varchar(30) | YES  |     | NULL    |       |
+| DOB    | date        | YES  |     | NULL    |       |
+| City   | varchar(30) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.118 sec)
+
+MariaDB [uov]> insert into Students values('2022/asp/65','Lux','AMC','2002.09.12','Jaffna'),('2022/asp/64','Rose','AMC','2003.01.16','Jaffna'),('2022/asp/63
+','saru','AMC','2003.12.09','Kokuvil'),('2022/ICT/162','Yalini','AMC','2002.05.16','Manipay'),('2022/asp/56','Sneka','AMC','2003.05.14','Vavuniya');
+Query OK, 5 rows affected, 5 warnings (0.484 sec)
+Records: 5  Duplicates: 0  Warnings: 5
+
+MariaDB [uov]> select * from Students;
++------------+--------+------+------------+----------+
+| Stu_id     | Name   | cour | DOB        | City     |
++------------+--------+------+------------+----------+
+| 2022/asp/6 | Lux    | AMC  | 2002-09-12 | Jaffna   |
+| 2022/asp/6 | Rose   | AMC  | 2003-01-16 | Jaffna   |
+| 2022/asp/6 | saru   | AMC  | 2003-12-09 | Kokuvil  |
+| 2022/ICT/1 | Yalini | AMC  | 2002-05-16 | Manipay  |
+| 2022/asp/5 | Sneka  | AMC  | 2003-05-14 | Vavuniya |
++------------+--------+------+------------+----------+
+5 rows in set (0.006 sec)
+
+MariaDB [uov]> create table work(PhysicianId
+    ->
+    -> Bye
+
+DELL@DESKTOP-8VVGKF7 d:\new
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use uov;
+Database changed
+MariaDB [uov]> create table work(PhysicianId char(20),Name varchar(30),Posit
+ion varchar(40));
+Query OK, 0 rows affected (0.509 sec)
+
+MariaDB [uov]> desc work;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| PhysicianId | char(20)    | YES  |     | NULL    |       |
+| Name        | varchar(30) | YES  |     | NULL    |       |
+| Position    | varchar(40) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.108 sec)
+
+MariaDB [uov]> insert into work values('a','John Dorian','Staff Internist'),
+('b','Elliot Reid','Attending Physican'),('c','Christopher Turk','Sugical At
+tending Physican'),('e','Keith Dudedemeister','MD Resident'),('f','Molly Clo
+ck','Attending Psychiatrist');
+Query OK, 5 rows affected (0.528 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [uov]> select * from work;
++-------------+---------------------+----------------------------+
+| PhysicianId | Name                | Position                   |
++-------------+---------------------+----------------------------+
+| a           | John Dorian         | Staff Internist            |
+| b           | Elliot Reid         | Attending Physican         |
+| c           | Christopher Turk    | Sugical Attending Physican |
+| e           | Keith Dudedemeister | MD Resident                |
+| f           | Molly Clock         | Attending Psychiatrist     |
++-------------+---------------------+----------------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [uov]>
+
+Conclusion:
+ We learn to MySQL
+(1) create DataBase
+(2) Show DataBase
+(3) Change DataBase
+(4) Create Table
+(5) Desc Table
+(6) Insert the values
+(7) Show Table 
+
+                                                                            
