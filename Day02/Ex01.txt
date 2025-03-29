@@ -1,0 +1,542 @@
+
+Setting environment for using XAMPP for Windows.
+2022ASP63@CL2-34 c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bank               |
+| bfl                |
+| bookdb             |
+| books              |
+| company            |
+| companydb          |
+| englishfi          |
+| furniture_shop     |
+| hospital           |
+| hospital1          |
+| icae02             |
+| information_schema |
+| it1223db           |
+| library            |
+| librarydb          |
+| librarysystem      |
+| mobile_web         |
+| moviedb            |
+| mysql              |
+| parking            |
+| performance_schema |
+| phpmyadmin         |
+| retailstore        |
+| spjbase            |
+| student            |
+| studentdb          |
+| test               |
+| uov                |
++--------------------+
+28 rows in set (0.056 sec)
+
+MariaDB [(none)]> use UOV;
+Database changed
+MariaDB [UOV]> create table Patient(PatientId BIGINT PRIMARY KEY,Name VARCHAR(15),Address VARCHAR(15),Phone CHAR(15)
+    -> );
+Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [UOV]> desc ^DBye
+
+2022ASP63@CL2-34 c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> desc Patient
+    -> ;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> use UOV;
+Database changed
+MariaDB [UOV]> desc Patient;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| PatientId | bigint(20)  | NO   | PRI | NULL    |       |
+| Name      | varchar(15) | YES  |     | NULL    |       |
+| Address   | varchar(15) | YES  |     | NULL    |       |
+| Phone     | char(15)    | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.015 sec)
+
+MariaDB [UOV]> INSERT INTO Patient VALUES
+    -> ('100000001','John Smith','42 Foobar Lane','555-0256');
+Query OK, 1 row affected (0.040 sec)
+
+MariaDB [UOV]> INSERT INTO Patient VALUES
+    -> ('100000002','Grace Ritchie','37 Snafu Drive','555-0512'),
+    -> ('100000003','Todd Quinlan','101 omgbbq Street','555-1204'),
+    -> ('100000004','Dennis Doe','1100 Foobaz Avenue','555-2884');
+Query OK, 3 rows affected, 2 warnings (0.004 sec)
+Records: 3  Duplicates: 0  Warnings: 2
+
+MariaDB [UOV]> show * from Patient;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from Patient' at line 1
+MariaDB [UOV]> select * from Patient;
++-----------+---------------+-----------------+----------+
+| PatientId | Name          | Address         | Phone    |
++-----------+---------------+-----------------+----------+
+| 100000001 | John Smith    | 42 Foobar Lane  | 555-0256 |
+| 100000002 | Grace Ritchie | 37 Snafu Drive  | 555-0512 |
+| 100000003 | Todd Quinlan  | 101 omgbbq Stre | 555-1204 |
+| 100000004 | Dennis Doe    | 1100 Foobaz Ave | 555-2884 |
++-----------+---------------+-----------------+----------+
+4 rows in set (0.000 sec)
+
+MariaDB [UOV]> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1MariaDB [UOV]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bank               |
+| bfl                |
+| bookdb             |
+| books              |
+| company            |
+| companydb          |
+| englishfi          |
+| furniture_shop     |
+| hospital           |
+| hospital1          |
+| icae02             |
+| information_schema |
+| it1223db           |
+| library            |
+| librarydb          |
+| librarysystem      |
+| mobile_web         |
+| moviedb            |
+| mysql              |
+| parking            |
+| performance_schema |
+| phpmyadmin         |
+| retailstore        |
+| spjbase            |
+| student            |
+| studentdb          |
+| test               |
+| uov                |
++--------------------+
+28 rows in set (0.001 sec)
+
+MariaDB [UOV]> drop database student;
+Query OK, 1 row affected (0.031 sec)
+
+MariaDB [uov]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bank               |
+| bfl                |
+| bookdb             |
+| books              |
+| company            |
+| companydb          |
+| englishfi          |
+| furniture_shop     |
+| hospital           |
+| hospital1          |
+| icae02             |
+| information_schema |
+| it1223db           |
+| library            |
+| librarydb          |
+| librarysystem      |
+| mobile_web         |
+| moviedb            |
+| mysql              |
+| parking            |
+| performance_schema |
+| phpmyadmin         |
+| retailstore        |
+| spjbase            |
+| studentdb          |
+| test               |
+| uov                |
++--------------------+
+27 rows in set (0.001 sec)
+
+MariaDB [uov]> create table Marks(ID INT primary key,Name VARCHAR(15),Age INT,Grade CHAR(5),City VARCHAR(25));
+Query OK, 0 rows affected (0.012 sec)
+
+MariaDB [uov]> desc Marks;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| ID    | int(11)     | NO   | PRI | NULL    |       |
+| Name  | varchar(15) | YES  |     | NULL    |       |
+| Age   | int(11)     | YES  |     | NULL    |       |
+| Grade | char(5)     | YES  |     | NULL    |       |
+| City  | varchar(25) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.016 sec)
+
+MariaDB [uov]> INSERT INTO Marks VALUES
+    -> ('1','Alice','20','A','New York'),
+    -> ('2','Bob','22','B','Chicago'),
+    -> ('3','Charlie','21','A','New York'),
+    -> ('4','David','23','C','Boston'),
+    -> ('5','Emma','22','B','Chicago'),
+    -> ('6','Frank','20','A','Los Angeles');
+Query OK, 6 rows affected (0.004 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+MariaDB [uov]> select * from Marks;
++----+---------+------+-------+-------------+
+| ID | Name    | Age  | Grade | City        |
++----+---------+------+-------+-------------+
+|  1 | Alice   |   20 | A     | New York    |
+|  2 | Bob     |   22 | B     | Chicago     |
+|  3 | Charlie |   21 | A     | New York    |
+|  4 | David   |   23 | C     | Boston      |
+|  5 | Emma    |   22 | B     | Chicago     |
+|  6 | Frank   |   20 | A     | Los Angeles |
++----+---------+------+-------+-------------+
+6 rows in set (0.000 sec)
+
+MariaDB [uov]>
+MariaDB [uov]> Setting environment for using XAMPP for Windows.
+    -> 2022ASP63@CL2-34 c:\xampp
+ERROR: Unknown command '\x'.
+    -> # mysql -u root -p
+    -> Enter password:
+    -> Welcome to the MariaDB monitor.  Commands end with ; or \g.
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Setting environment for using XAMPP for Windows.
+2022ASP63@CL2-34 c:\xampp
+
+E...' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'or' at line 1
+    -> Your MariaDB connection id is 9
+    -> Server version: 10.4.32-MariaDB mariadb.org binary distribution
+    ->
+    -> Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+    ->
+    -> Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+    ->
+    -> MariaDB [(none)]> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.
+Your MariaDB connection id is 9
+Server version: 10.4.32-MariaDB mariadb.org...' at line 1
+MariaDB [uov]> +--------------------+
+    -> | Database           |
+    -> +--------------------+
+    -> | bank               |
+    -> | bfl                |
+    -> | bookdb             |
+    -> | books              |
+    -> | company            |
+    -> | companydb          |
+    -> | englishfi          |
+    -> | furniture_shop     |
+    -> | hospital           |
+    -> | hospital1          |
+    -> | icae02             |
+    -> | information_schema |
+    -> | it1223db           |
+    -> | library            |
+    -> | librarydb          |
+    -> | librarysystem      |
+    -> | mobile_web         |
+    -> | moviedb            |
+    -> | mysql              |
+    -> | parking            |
+    -> | performance_schema |
+    -> | phpmyadmin         |
+    -> | retailstore        |
+    -> | spjbase            |
+    -> | student            |
+    -> | studentdb          |
+    -> | test               |
+    -> | uov                |
+    -> +--------------------+
+    -> 28 rows in set (0.056 sec)
+    ->
+    -> MariaDB [(none)]> use UOV;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '+--------------------+
+| Database           |
++--------------------+
+| bank  ...' at line 1
+MariaDB [uov]> Database changed
+    -> MariaDB [UOV]> create table Patient(PatientId BIGINT PRIMARY KEY,Name VARCHAR(15),Address VARCHAR(15),Phone CHAR(15)
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Database changed
+MariaDB [UOV]> create table Patient(PatientId BIGINT PRIMARY...' at line 1
+MariaDB [uov]> Query OK, 0 rows affected (0.011 sec)
+    ->
+    -> MariaDB [UOV]> desc ^DBye
+    ->
+    -> 2022ASP63@CL2-34 c:\xampp
+ERROR: Unknown command '\x'.
+    -> # mysql -u root -p
+    -> Enter password:
+    -> Welcome to the MariaDB monitor.  Commands end with ; or \g.
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [UOV]> desc ^DBye
+
+2022ASP63@C...' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'or' at line 1
+    -> Your MariaDB connection id is 10
+    -> Server version: 10.4.32-MariaDB mariadb.org binary distribution
+    ->
+    -> Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+    ->
+    -> Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+    ->
+    -> MariaDB [(none)]> desc Patient
+    ->     -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.
+Your MariaDB connection id is 10
+Server version: 10.4.32-MariaDB mariadb.or...' at line 1
+MariaDB [uov]> ERROR 1046 (3D000): No database selected
+    -> MariaDB [(none)]> use UOV;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> use UOV' at line 1
+MariaDB [uov]> Database changed
+    -> MariaDB [UOV]> desc Patient;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Database changed
+MariaDB [UOV]> desc Patient' at line 1
+MariaDB [uov]> +-----------+-------------+------+-----+---------+-------+
+    -> | Field     | Type        | Null | Key | Default | Extra |
+    -> +-----------+-------------+------+-----+---------+-------+
+    -> | PatientId | bigint(20)  | NO   | PRI | NULL    |       |
+    -> | Name      | varchar(15) | YES  |     | NULL    |       |
+    -> | Address   | varchar(15) | YES  |     | NULL    |       |
+    -> | Phone     | char(15)    | YES  |     | NULL    |       |
+    -> +-----------+-------------+------+-----+---------+-------+
+    -> 4 rows in set (0.015 sec)
+    ->
+    -> MariaDB [UOV]> INSERT INTO Patient VALUES
+    ->     -> ('100000001','John Smith','42 Foobar Lane','555-0256');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '+-----------+-------------+------+-----+---------+-------+
+| Field     | Type...' at line 1
+MariaDB [uov]> Query OK, 1 row affected (0.040 sec)
+    ->
+    -> MariaDB [UOV]> INSERT INTO Patient VALUES
+    ->     -> ('100000002','Grace Ritchie','37 Snafu Drive','555-0512'),
+    ->     -> ('100000003','Todd Quinlan','101 omgbbq Street','555-1204'),
+    ->     -> ('100000004','Dennis Doe','1100 Foobaz Avenue','555-2884');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Query OK, 1 row affected (0.040 sec)
+
+MariaDB [UOV]> INSERT INTO Patient VALU...' at line 1
+MariaDB [uov]> Query OK, 3 rows affected, 2 warnings (0.004 sec)
+    -> Records: 3  Duplicates: 0  Warnings: 2
+    ->
+    -> MariaDB [UOV]> show * from Patient;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Query OK, 3 rows affected, 2 warnings (0.004 sec)
+Records: 3  Duplicates: 0  ...' at line 1
+MariaDB [uov]> ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from Patient' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ERROR 1064 (42000): You have an error in your SQL syntax' at line 1
+    -> MariaDB [UOV]> select * from Patient;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'the manual that corresponds to your MariaDB server version for the right synt...' at line 1
+MariaDB [uov]> +-----------+---------------+-----------------+----------+
+    -> | PatientId | Name          | Address         | Phone    |
+    -> +-----------+---------------+-----------------+----------+
+    -> | 100000001 | John Smith    | 42 Foobar Lane  | 555-0256 |
+    -> | 100000002 | Grace Ritchie | 37 Snafu Drive  | 555-0512 |
+    -> | 100000003 | Todd Quinlan  | 101 omgbbq Stre | 555-1204 |
+    -> | 100000004 | Dennis Doe    | 1100 Foobaz Ave | 555-2884 |
+    -> +-----------+---------------+-----------------+----------+
+    -> 4 rows in set (0.000 sec)
+    ->
+    -> MariaDB [UOV]> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '+-----------+---------------+-----------------+----------+
+| PatientId | Name...' at line 1
+MariaDB [uov]> ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1MariaDB [UOV]> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ERROR 1064 (42000): You have an error in your SQL syntax' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'the manual that corresponds to your MariaDB server version for the right synt...' at line 1
+MariaDB [uov]> +--------------------+
+    -> | Database           |
+    -> +--------------------+
+    -> | bank               |
+    -> | bfl                |
+    -> | bookdb             |
+    -> | books              |
+    -> | company            |
+    -> | companydb          |
+    -> | englishfi          |
+    -> | furniture_shop     |
+    -> | hospital           |
+    -> | hospital1          |
+    -> | icae02             |
+    -> | information_schema |
+    -> | it1223db           |
+    -> | library            |
+    -> | librarydb          |
+    -> | librarysystem      |
+    -> | mobile_web         |
+    -> | moviedb            |
+    -> | mysql              |
+    -> | parking            |
+    -> | performance_schema |
+    -> | phpmyadmin         |
+    -> | retailstore        |
+    -> | spjbase            |
+    -> | student            |
+    -> | studentdb          |
+    -> | test               |
+    -> | uov                |
+    -> +--------------------+
+    -> 28 rows in set (0.001 sec)
+    ->
+    -> MariaDB [UOV]> drop database student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '+--------------------+
+| Database           |
++--------------------+
+| bank  ...' at line 1
+MariaDB [uov]> Query OK, 1 row affected (0.031 sec)
+    ->
+    -> MariaDB [uov]> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Query OK, 1 row affected (0.031 sec)
+
+MariaDB [uov]> show databases' at line 1
+MariaDB [uov]> +--------------------+
+    -> | Database           |
+    -> +--------------------+
+    -> | bank               |
+    -> | bfl                |
+    -> | bookdb             |
+    -> | books              |
+    -> | company            |
+    -> | companydb          |
+    -> | englishfi          |
+    -> | furniture_shop     |
+    -> | hospital           |
+    -> | hospital1          |
+    -> | icae02             |
+    -> | information_schema |
+    -> | it1223db           |
+    -> | library            |
+    -> | librarydb          |
+    -> | librarysystem      |
+    -> | mobile_web         |
+    -> | moviedb            |
+    -> | mysql              |
+    -> | parking            |
+    -> | performance_schema |
+    -> | phpmyadmin         |
+    -> | retailstore        |
+    -> | spjbase            |
+    -> | studentdb          |
+    -> | test               |
+    -> | uov                |
+    -> +--------------------+
+    -> 27 rows in set (0.001 sec)
+    ->
+    -> MariaDB [uov]> create table Marks(ID INT primary key,Name VARCHAR(15),Age INT,Grade CHAR(5),City VARCHAR(25));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '+--------------------+
+| Database           |
++--------------------+
+| bank  ...' at line 1
+MariaDB [uov]> Query OK, 0 rows affected (0.012 sec)
+    ->
+    -> MariaDB [uov]> desc Marks;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Query OK, 0 rows affected (0.012 sec)
+
+MariaDB [uov]> desc Marks' at line 1
+MariaDB [uov]> +-------+-------------+------+-----+---------+-------+
+    -> | Field | Type        | Null | Key | Default | Extra |
+    -> +-------+-------------+------+-----+---------+-------+
+    -> | ID    | int(11)     | NO   | PRI | NULL    |       |
+    -> | Name  | varchar(15) | YES  |     | NULL    |       |
+    -> | Age   | int(11)     | YES  |     | NULL    |       |
+    -> | Grade | char(5)     | YES  |     | NULL    |       |
+    -> | City  | varchar(25) | YES  |     | NULL    |       |
+    -> +-------+-------------+------+-----+---------+-------+
+    -> 5 rows in set (0.016 sec)
+    ->
+    -> MariaDB [uov]> INSERT INTO Marks VALUES
+    ->     -> ('1','Alice','20','A','New York'),
+    ->     -> ('2','Bob','22','B','Chicago'),
+    ->     -> ('3','Charlie','21','A','New York'),
+    ->     -> ('4','David','23','C','Boston'),
+    ->     -> ('5','Emma','22','B','Chicago'),
+    ->     -> ('6','Frank','20','A','Los Angeles');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '+-------+-------------+------+-----+---------+-------+
+| Field | Type        ...' at line 1
+MariaDB [uov]> Query OK, 6 rows affected (0.004 sec)
+    -> Records: 6  Duplicates: 0  Warnings: 0
+    ->
+    -> MariaDB [uov]> select * from Marks;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Query OK, 6 rows affected (0.004 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+...' at line 1
+MariaDB [uov]> +----+---------+------+-------+-------------+
+    -> | ID | Name    | Age  | Grade | City        |
+    -> +----+---------+------+-------+-------------+
+    -> |  1 | Alice   |   20 | A     | New York    |
+    -> |  2 | Bob     |   22 | B     | Chicago     |
+    -> |  3 | Charlie |   21 | A     | New York    |
+    -> |  4 | David   |   23 | C     | Boston      |
+    -> |  5 | Emma    |   22 | B     | Chicago     |
+    -> |  6 | Frank   |   20 | A     | Los Angeles |
+    -> +----+---------+------+-------+-------------+
+    -> 6 rows in set (0.000 sec)
+    ->
+    -> MariaDB [uov]>
+    ->
+    ->  select * from Marks;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '+----+---------+------+-------+-------------+
+| ID | Name    | Age  | Grade |...' at line 1
+MariaDB [uov]> delete from Marks;
+Query OK, 6 rows affected (0.002 sec)
+
+MariaDB [uov]> desc Marks;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| ID    | int(11)     | NO   | PRI | NULL    |       |
+| Name  | varchar(15) | YES  |     | NULL    |       |
+| Age   | int(11)     | YES  |     | NULL    |       |
+| Grade | char(5)     | YES  |     | NULL    |       |
+| City  | varchar(25) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.013 sec)
+
+MariaDB [uov]> LOAD DATA LOCAL INFILE 'C:/Users/2022ASP63/Desktop/AMC/2022 ASP 63/Marks.csv'
+    -> INTO TABLE Marks
+    -> FIELDS TERMINATED BY '\t'
+    -> LINES TERMINATED BY '\n'
+    -> (ID ,Name ,Age ,Grade ,City);
+Query OK, 6 rows affected, 30 warnings (0.006 sec)
+Records: 6  Deleted: 0  Skipped: 0  Warnings: 30
+
+MariaDB [uov]> select * from Marks;
++----+------+------+-------+------+
+| ID | Name | Age  | Grade | City |
++----+------+------+-------+------+
+|  1 | NULL | NULL | NULL  | NULL |
+|  2 | NULL | NULL | NULL  | NULL |
+|  3 | NULL | NULL | NULL  | NULL |
+|  4 | NULL | NULL | NULL  | NULL |
+|  5 | NULL | NULL | NULL  | NULL |
+|  6 | NULL | NULL | NULL  | NULL |
++----+------+------+-------+------+
+6 rows in set (0.000 sec)
+
+MariaDB [uov]> select * from Marks;
+
+Conclusion:
+I have learnt about how to delect table ,how to use primary key, how to delect the table values ,how to delect data base and how to insert the values in other method.
